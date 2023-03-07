@@ -23,7 +23,7 @@
               <label for="exampleInputEmail1">Email address</label>
               <input id="exampleInputEmail1" type="email" class="form-control" aria-describedby="emailHelp">
             </div>
-            <button type="button" class="btn btn-primary btn-lg btn-block">
+            <button type="submit" @click.stop.prevent="submit()" class="btn btn-primary btn-lg btn-block">
               Obter o conhecimenot!
             </button>
           </form>
@@ -98,7 +98,7 @@
                 <label for="exampleInputEmail1">Email address</label>
                 <input id="exampleInputEmail1" type="email" class="form-control" aria-describedby="emailHelp">
               </div>
-              <button type="button" class="btn btn-primary btn-lg btn-block">
+              <button type="submit" @click.stop.prevent="submit()" class="btn btn-primary btn-lg btn-block">
                 Obter o conhecimenot!
               </button>
             </form>
@@ -123,6 +123,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'IndexPage'
+  name: 'IndexPage',
+  methods: {
+    submit(){
+      this.$router.push('/checkout');
+    }
+  }
 })
 </script>
