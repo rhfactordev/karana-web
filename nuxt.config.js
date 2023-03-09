@@ -18,6 +18,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/scss/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -30,7 +31,9 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/fontawesome'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -38,7 +41,9 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/gtm'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -49,5 +54,49 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extractCSS: true,
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.(css|vue)$/,
+            chunks: 'all',
+            enforce: true
+          }
+        }
+      }
+    }
+  },
+
+  bootstrapVue: {
+    bootstrapCSS: false,
+    bootstrapVueCSS: false,
+    icons: false
+    // components: ['BIconSearch'],
+    // componentPlugins: ['NavbarPlugin', 'LayoutPlugin', 'ButtonPlugin', 'FormPlugin', 'FormInputPlugin', 'ImagePlugin', 'BadgePlugin', 'LinkPlugin', 'TablePlugin', 'InputGroupPlugin', 'SpinnerPlugin', 'PaginationPlugin', 'PaginationNavPlugin']
+  },
+
+  gtm: {
+    id: 'GTM-5SF5LR7',
+    enabled: true,
+    debug: true
+  },
+
+  fontawesome: {
+    icons: {
+      solid: ['faEnvelope', 'faMobileAlt', 'faMapMarkerAlt'],
+      brands: ['faWhatsapp', 'faFacebook', 'faYoutube', 'faInstagram']
+    }
+  },
+
+  publicRuntimeConfig: {
+    gtm: {
+      id: 'GTM-5SF5LR7'
+    },
+    axios: {
+      baseURL: 'https://api.appkarana.com.br'
+    }
   }
+
 }

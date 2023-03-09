@@ -1,41 +1,28 @@
 <template>
   <main>
-    <section class="container">
-      <div class="text-center">
-        Karana
-      </div>
-    </section>
-
-    <section class="container bg-light py-5">
-      <div class="row">
-        <div class="col-12 col-sm-12 col-md-6 p-md-5">
-          <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen />
+    <section class="bg-light">
+      <div class="container my-3">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="embed-responsive embed-responsive-16by9 my-md-5">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen />
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-6">
+            <div class="p-5">
+              <h1>O poder do autoconhecimento na palma da mão</h1>
+              <p>Preencha os dados abaixo para acessar seu mapa astral e obter detalhes importantes para alcançar todo o potencial da sua vida.</p>
+              <email-form />
+            </div>
           </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-6 p-5">
-          <h1 class="py-3">
-            O poder do autoconhecimento na palma da mão
-          </h1>
-          <p>Preencha os dados abaixo para acessar seu mapa astral e obter detalhes importantes para alcançar todo o potencial da sua vida.</p>
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input id="exampleInputEmail1" type="email" class="form-control" aria-describedby="emailHelp">
-            </div>
-            <button type="submit" @click.stop.prevent="submit()" class="btn btn-primary btn-lg btn-block">
-              Obter o conhecimenot!
-            </button>
-          </form>
-        </div>
       </div>
     </section>
 
-    <section class="container bg-primary py-5">
-
+    <section class="container-fluid bg-secondary-light py-5">
       <div class="text-center mb-5">
-        <h2>Entenda o seu mapa astral</h2>
-        <p class="w-md-50 m-auto">
+        <h2 class="text-white">Entenda o seu mapa astral</h2>
+        <p class="w-md-50 text-white m-auto">
           Conheça os benefícios de obter o seu mapa astral This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
         </p>
       </div>
@@ -86,28 +73,48 @@
       </div>
     </section>
 
-    <section class="container bg-light">
+    <section class="container-fluid bg-light">
       <div class="row">
-        <div class="d-none d-md-table-cell col-md-6 bg-1">
-        </div>
+        <div class="d-none d-md-table-cell col-md-6 bg-1" />
         <div class="col-md-6 p-5">
-            <h1 class="mt-5 mb-3">Only the finest,<br/>locally sourced produce.</h1>
-            <p>All fresh ingredients in our dishes are sourced from local farms and farmer's markets. Making use of only fresh, seasonally available produce infuses the dishes we prepare with a unique authenticity.</p>
-            <form class="my-5">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input id="exampleInputEmail1" type="email" class="form-control" aria-describedby="emailHelp">
-              </div>
-              <button type="submit" @click.stop.prevent="submit()" class="btn btn-primary btn-lg btn-block">
-                Obter o conhecimenot!
-              </button>
-            </form>
+          <h1 class="mt-5 mb-3">
+            Only the finest,<br>locally sourced produce.
+          </h1>
+          <p>All fresh ingredients in our dishes are sourced from local farms and farmer's markets. Making use of only fresh, seasonally available produce infuses the dishes we prepare with a unique authenticity.</p>
+          <form class="my-5">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input id="exampleInputEmail1" type="email" class="form-control" aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" @click.stop.prevent="submit()">
+              Obter o conhecimenot!
+            </button>
+          </form>
         </div>
       </div>
     </section>
-
   </main>
 </template>
+
+<script>
+
+export default {
+  name: 'IndexPage',
+  head () {
+    return {
+      title: 'Mapa Aastral - Conhecimento em suas mãos',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'FDescrição da página'
+        }
+
+      ]
+    }
+  }
+}
+</script>
 
 <style scoped>
   .bg-1{
@@ -118,16 +125,3 @@
     height: 600px!important;
   }
 </style>
-
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'IndexPage',
-  methods: {
-    submit(){
-      this.$router.push('/checkout');
-    }
-  }
-})
-</script>
